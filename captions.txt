@@ -1,0 +1,196 @@
+[ 0 28]
+a large elephant standing in a field of grass
+[ 0 28]
+
+
+
+
+==========================================================================
+
+
+
+[ 29 111]
+a large elephant walking through a lush green forest
+[ 29 111]
+a group of people riding on top of a elephant
+[ 29 111]
+a group of elephants standing in a field of grass
+[ 29 111]
+
+
+
+
+==========================================================================
+
+
+
+[112 180]
+two elephants walking in the sand at the zoo
+[112 180]
+a group of elephants walking across a body of water
+[112 180]
+an elephant standing in the water next to an elephant
+[112 180]
+a man riding on the back of a elephant
+[112 180]
+an elephant is squirting water out of a river
+[112 180]
+a couple of elephants that are standing in the dirt
+[112 180]
+a group of people riding on top of an elephant
+[112 180]
+
+
+
+
+==========================================================================
+
+
+
+[181 283]
+a large elephant standing next to a stone wall
+[181 283]
+a baby elephant standing next to a baby elephant
+[181 283]
+a baby elephant standing next to an adult elephant
+[181 283]
+an elephant is standing in the dirt near a tree
+[181 283]
+a couple of elephants standing next to each other on a field
+[181 283]
+
+
+
+
+==========================================================================
+
+
+
+[284 360]
+a lone elephant walking through a field of grass
+[284 360]
+a person riding a horse in a field
+[284 360]
+a large elephant standing in the sand near a beach
+[284 360]
+a man riding on the back of a brown elephant
+[284 360]
+a couple of elephants that are standing in the water
+[284 360]
+a tusked elephant standing in the water near a river
+[284 360]
+
+
+
+
+==========================================================================
+
+
+
+[361 421]
+a large elephant standing in the water next to some rocks
+[361 421]
+a large elephant walking through a shallow river
+[361 421]
+an elephant standing in the middle of a dirt road
+[361 421]
+
+
+
+
+==========================================================================
+
+
+
+[422 504]
+a group of elephants standing next to each other on a field
+[422 504]
+a man holding a baby elephant standing next to a river
+[422 504]
+a man and a woman are riding on the back of a elephant
+[422 504]
+an elephant is standing in the dirt with a person
+[422 504]
+a man and a woman are riding on the back of a elephant
+[422 504]
+an elephant is walking through the water
+[422 504]
+a man riding on the back of a elephant
+[422 504]
+a man is hosing down the side of a elephant
+[422 504]
+an elephant is walking through the woods with trees
+[422 504]
+a large elephant standing in the middle of a forest
+[422 504]
+
+
+
+
+==========================================================================
+
+
+
+[505 548]
+a group of elephants standing in a field
+[505 548]
+a group of people riding on top of elephants in a river
+[505 548]
+
+
+
+
+==========================================================================
+
+
+
+[549 640]
+a herd of elephants walking through a field of grass
+[549 640]
+
+
+
+
+==========================================================================
+
+
+
+[641 742]
+a herd of elephants standing in a watering hole
+[641 742]
+a herd of elephants walking across a dry grass field
+[641 742]
+
+
+
+
+==========================================================================
+
+
+
+[743 777]
+a large elephant standing in the grass next to trees
+[743 777]
+a large elephant standing next to a rock wall
+[743 777]
+a man holding a baby elephant in a jungle
+[743 777]
+
+
+
+
+==========================================================================
+
+
+
+[778 977]
+a group of elephants standing in a field of grass
+[778 977]
+
+
+
+
+==========================================================================
+
+
+
