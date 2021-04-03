@@ -33,7 +33,8 @@ def sbd(path):
     return scenes
 
 def FrameCapture(path): 
-      
+    
+
     # Path to video file 
     vidObj = cv2.VideoCapture(path) 
     success, image = vidObj.read() 
@@ -49,64 +50,87 @@ def FrameCapture(path):
         
   
         # Saves the frames with frame-count 
-        if(True):
-            cv2.imwrite("C:/Users/jackg/Desktop/test/%d.jpg" % count, image)   #change it to the correct location
+        if(count%10==0):
+            cv2.imwrite("C:/Users/avant/Desktop/test/%d.jpg" % count, image)  #change it to the correct location
+        count+=1
+
         success, image = vidObj.read() 
-        count += 1
 
 
 def caption_sentence_transform(lines):
     from sentence_transformers import SentenceTransformer, util
     model = SentenceTransformer('paraphrase-distilroberta-base-v1')
     lines1=lines
-    j=0
-    i=0
-    n=len(lines1)
-    while(j<n-1):
-        i=j+1
-        while(i<n):
-            sentence1=lines1[j]
-            sentence2=lines1[i]
-            embeddings1 = model.encode(sentence1, convert_to_tensor=True)
-            embeddings2 = model.encode(sentence2, convert_to_tensor=True)
-            cosine_scores = util.pytorch_cos_sim(embeddings1, embeddings2)
-            print(sentence1,"\t",sentence2," ",cosine_scores[0][0])
-            #print(cosine_scores[0][0])
-            if(cosine_scores[0][0]>0.7):
-                lines1.remove(lines1[i])
-                i-=1
-            n=len(lines1)
-            i+=1
-        j+=1
+    m=0
+    while(m<2):
+        j=0
+        i=0
+        n=len(lines1)
+        while(j<n-1):
+            i=j+1
+            while(i<n):
+                sentence1=lines1[j]
+                sentence2=lines1[i]
+                embeddings1 = model.encode(sentence1, convert_to_tensor=True)
+                embeddings2 = model.encode(sentence2, convert_to_tensor=True)
+                cosine_scores = util.pytorch_cos_sim(embeddings1, embeddings2)
+                print(sentence1,"\t",sentence2," ",cosine_scores[0][0])
+                #print(cosine_scores[0][0])
+                if(cosine_scores[0][0]>0.7):
+                    lines1.remove(lines1[i])
+                    i-=1
+                n=len(lines1)
+                i+=1
+            j+=1
+        m+=1
     return lines1
 
 
 def captioning_shit(scenes, path):
+    
+
+    test_path = "C:/Users/avant/Desktop/test/"   #change it to the correct location
+    if(os.path.isdir(test_path)):
+    	shutil.rmtree(test_path)
+    	os.mkdir(test_path)
+    else:
+    	os.mkdir(test_path)
+
     FrameCapture(path)
 
-    test_path = "C:/Users/jackg/Desktop/test/"   #change it to the correct location
     for i in range(len(scenes)):
         os.mkdir(os.path.join(test_path, str(i)))
 
     for i in range(len(scenes)):
         a,b = scenes[i]
-        for j in range(a,b+1):
+        a=((a//10)+1)*10
+        b=((b//10))*10
+        print(a,b)
+        for j in range(a,b+1,10):
             shutil.move(os.path.join(test_path, str(j)+'.jpg'), os.path.join(test_path, str(i)))
 
-    img_dir_path = "C:/Users/jackg/Desktop/test/"                           #change it to the correct location
-    sys.path.insert(1, 'C:/Users/jackg/Desktop/Image-caption/code/')        #change it to the correct location
+    img_dir_path = "C:/Users/avant/Desktop/test/"                           #change it to the correct location
+    sys.path.insert(1, 'C:/Users/avant/Desktop/chainer-caption/code/')        #change it to the correct location
     from CaptionGenerator import CaptionGenerator 
 
     caption_generator=CaptionGenerator(
-    rnn_model_place='C:/Users/jackg/Desktop/Image-caption/data/caption_en_model40.model',   #change it to the correct location
-    cnn_model_place='C:/Users/jackg/Desktop/Image-caption/data/ResNet50.model',             #change it to the correct location
-    dictonary_place='C:/Users/jackg/Desktop/Image-caption/data/MSCOCO/mscoco_caption_train2014_processed_dic.json',     #change it to the correct location
+    # rnn_model_place='C:/Users/avant/Desktop/chainer-caption/data/caption_en_model40.model',   #change it to the correct location
+    # dictonary_place='C:/Users/avant/Desktop/chainer-caption/data/MSCOCO/mscoco_caption_train2014_processed_dic.json', 
+
+    rnn_model_place='C:/Users/avant/Desktop/chainer-caption/data/caption_model40_words.model',  
+    dictonary_place='C:/Users/avant/Desktop/chainer-caption/data/CCTV/cctv_caption_train2014_processed_dic.json', 
+
+    cnn_model_place='C:/Users/avant/Desktop/chainer-caption/data/ResNet50.model',             #change it to the correct location
+        #change it to the correct location
     beamsize=3,
     depth_limit=50,
     gpu_id=-1,
     first_word='<sos>',
     )
 
+    f=open("captions.txt","r+")
+    f.truncate(0)
+    f.close()
     f = open("captions.txt", "a")
     captions_list=""
     caption_transform = []
@@ -122,15 +146,18 @@ def captioning_shit(scenes, path):
             captions_list+=temp1[6:-6]+'\n'
             #caption_transform.append(temp1[6:-66])
         generated_captions = captions_list.split('\n')
+        print("**")
+        print(generated_captions)
+        print("**")
         temp2 = caption_sentence_transform(generated_captions)
 
         for cap in temp2:
-            f.write(str(scenes[i])+'\n')
+            #f.write(str(scenes[i])+'\n')
             f.write(cap)
-            f.write('\n')
+            f.write('=')
         captions_list = ""
         #caption_transform.clear()
-        f.write('\n\n\n'+'=========================================================================='+'\n\n\n\n')
+        f.write('*')
     #f.write(captions_list)
     f.close()
 
@@ -169,11 +196,21 @@ def upload_file():
     uploaded_file = request.files['file']
     if uploaded_file.filename != '':
         #uploaded_file.save(uploaded_file.filename)
-        path="C:/Users/jackg/Desktop/SBD/testvids/"+uploaded_file.filename  #change it to the correct location
+        path="C:/Users/avant/Desktop/SBD/testvids/"+uploaded_file.filename  #change it to the correct location
         print(path)
         s=sbd(path)
         captioning_shit(s, path)
-        return render_template('mainpage.html',scenes=s)
+        f=open("captions.txt","r")
+        a=f.read()
+        cap=a.split("==*")
+        temp5 = []
+        vid_path="C:/Users/avant/Desktop/SBD/static/"
+        final_path=vid_path+uploaded_file.filename
+        for caps in cap:
+            temp=caps.split('=')
+            temp5.append(temp)
+
+        return render_template('mainpage.html',scenes=s, captions=temp5, vid=uploaded_file.filename)
 
 
 
