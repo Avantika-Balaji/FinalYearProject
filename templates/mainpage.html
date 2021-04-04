@@ -1,97 +1,175 @@
        <!DOCTYPE html>
-<html lang="en">
+       <html lang="en">
 
-<head>
+       <head>
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-  <title>Shot Boundary</title>
+        <title>Shot Boundary</title>
 
-  <!-- Custom fonts for this template -->
-  <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        <!-- Custom fonts for this template -->
+        <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-  <!-- Custom styles for this template -->
-  <link href="../static/css/sb-admin-2.min.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="../static/css/sb-admin-2.min.css" rel="stylesheet">
 
-  <!-- Custom styles for this page -->
-  <link href="../static/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+        <!-- Custom styles for this page -->
+        <link href="../static/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-  <style type="text/css">
-    
-    tr:hover {
-      background-color: #f5f5f5;
-      cursor: pointer;
-    }
+        <style type="text/css">
 
-  </style>
+          tr:hover {
+            background-color: #f5f5f5;
+            cursor: pointer;
+          }
 
-</head>
-       <h1>File Upload</h1>
-          <form method="POST" action="" enctype="multipart/form-data">
-          <p><input type="file" name="file"></p>
-          <p><input type="submit" value="Predict" name="Predict"></p>
-          </form>
+        </style>
+
+      </head>
+      <body id="page-top">
+
+        <div id="content-wrapper" class="d-flex flex-column">
+
+          <div id="content" >
+
+
+            <!-- Topbar -->
+            <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+              <!-- Sidebar Toggle (Topbar) -->
+              <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                <i class="fa fa-bars"></i>
+              </button>
+
+              <div class="nav-item dropdown no-arrow">
+                  <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img class="img-profile rounded-circle" src="https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg">
+                  </a>
+                  <!-- Dropdown - User Information -->
+                  <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="#">
+                      <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                      Profile
+                    </a>
+                    <a class="dropdown-item" href="#">
+                      <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                      Settings
+                    </a>
+                    <a class="dropdown-item" href="#">
+                      <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                      Activity Log
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                      <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                      Logout
+                    </a>
+                  </div>
+                </div>
+
+                <div class="topbar-divider d-none d-sm-block"></div>
+
+              <!-- Topbar Search -->
+              <center><h3 style="margin-left: 20px;">Shot Boundary Detection with Video Caption</h3></center>
+
+             
+
+            </nav>
+            <!-- End of Topbar -->
+
+
+            <div style="padding-left: 80px; padding-right: 80px;">
+            <div class="card shadow mb-4" id="about" style="border: 2px; border-color: #4e73de; border-radius: 5px; padding: 10px;">
+              <div class="content" style="margin: 5px">
+                <center>
+                <h5 class="center" style="color: white"><span style="border: 2px; 
+                border-radius: 5px; 
+                padding: 5px; 
+                background: #4e73de; 
+                margin: 5px;">OVERVIEW</span></h5>
+              </br>
+                <p align="justify">Automatic identification of shot transitions in a video is a classical task of video analysis, and as the benchmarks do not cover all “open-world” aspects of video content, the problem cannot be considered as solved yet. Besides false hits, trained models can sometimes miss a difficult (e.g. long) transition, or may find shot transition detection models “unprepared” for a given type. Thus, it is underlined that there is a need for an elegant and efficient system for detecting transitions that makes video segmentation easier and more precise.</p> 
+<p align="justify">This is to be aided through a captioning model that returns a set of natural language descriptions for a given segment of a video. Ultimately, the goal is to input a video and get as an output, the points of Shot Transitions and along with that a set of tags pointing to what has taken place in between the said transitions. Finally, this is illustrated in a simple graphical interface.</p>
+
+                <center>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+<div style="padding-left: 80px; padding-right: 80px;">
+  <div class="card shadow mb-4" style="padding: 10px">
+  <center><h1>File Upload</h1>
+  <form method="POST" action="" enctype="multipart/form-data">
+    <p><input type="file" name="file" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"></p>
+    <p><input type="submit" value="Predict" name="Predict" class="btn btn-primary"></p>
+  </form>
 
       <!--     {% for ele in scenes %}
             <p>{{ele}}</p>
-          {% endfor %} -->
-<!-- Page Heading -->
-          <video width="500" height="300" controls>
-          <source src={{ url_for('static',filename=vid) }} type="video/mp4">
- <!--  <source src="{{vid}}" type="video/ogg"> -->
-  Your browser does not support the video tag.
-</video>
-
-	
-		  
-          <h1 class="h3 mb-2 text-gray-800">Cases </h1>
-          <p class="mb-4">Contains all the active and inactive cases</p>
-
-          <!-- DataTales Example -->
-          <div class="card shadow mb-4">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Case List</h6>
+            {% endfor %} -->
+            <!-- Page Heading -->
+            <video width="500" height="300" controls>
+              <source src={{ url_for('static',filename=vid) }} type="video/mp4">
+               <!--  <source src="{{vid}}" type="video/ogg"> -->
+                Your browser does not support the video tag.
+              </video> 
+              </center> 
             </div>
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
-                  <thead>
 
-                    <tr>
-                      <th>Start frame</th>
-                      <th>End frame</th>
-                      <th>Captions</th>
-                      <th>Start time</th>
-                      <th>End time</th>
-                
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th>Start frame</th>
-                      <th>End frame</th>
-                      <th>Captions</th>
-                      <th>Start time</th>
-                      <th>End time</th>
-                    
-                    </tr>
-                  </tfoot>
-                  <tbody>
-                  	 {% for a,b in scenes %}
-                    <tr>
-                      <td>{{a}}</td>
-                      <td>{{b}}</td>
-                      <td>{{captions[loop.index -1]}}</td>
-                      <td>{{a/25}}</td>
-                      <td>{{b/25}}</td>
-      
-                    </tr>
+
+              <h1 class="h3 mb-2 text-gray-800">Cases </h1>
+              <p class="mb-4">Contains all the active and inactive cases</p>
+
+              <!-- DataTales Example -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Case List</h6>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
+                      <thead>
+
+                        <tr>
+                          <th>Start frame</th>
+                          <th>End frame</th>
+                          <th>Captions</th>
+                          <th>Start time</th>
+                          <th>End time</th>
+
+                        </tr>
+                      </thead>
+                      <tfoot>
+                        <tr>
+                          <th>Start frame</th>
+                          <th>End frame</th>
+                          <th>Captions</th>
+                          <th>Start time</th>
+                          <th>End time</th>
+
+                        </tr>
+                      </tfoot>
+                      <tbody>
+                        {% for a,b in scenes %}
+                        <tr>
+                          <td>{{a}}</td>
+                          <td>{{b}}</td>
+                          <td>{{captions[loop.index -1]}}</td>
+                          <td>{{a/25}}</td>
+                          <td>{{b/25}}</td>
+
+                        </tr>
                   <!--   <tr>
                       <td>Donna Snider</td>
                       <td>Customer Support</td>
@@ -106,22 +184,26 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
 
-       <!-- Bootstrap core JavaScript-->
-  <script src="../static/vendor/jquery/jquery.min.js"></script>
-  <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Core plugin JavaScript-->
-  <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Custom scripts for all pages-->
-  <script src="../static/js/sb-admin-2.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="../static/js/sb-admin-2.min.js"></script>
 
-  <!-- Page level plugins -->
-  <script src="../static/vendor/datatables/jquery.dataTables.min.js"></script>
-  <script src="../static/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <!-- Page level plugins -->
+    <script src="../static/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../static/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-  <!-- Page level custom scripts -->
-  <script src="../static/js/demo/datatables-demo.js"></script>
+    <!-- Page level custom scripts -->
+    <script src="../static/js/demo/datatables-demo.js"></script>
+  </body>
 
   </html>

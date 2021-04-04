@@ -51,7 +51,7 @@ def FrameCapture(path):
   
         # Saves the frames with frame-count 
         if(count%10==0):
-            cv2.imwrite("C:/Users/avant/Desktop/test/%d.jpg" % count, image)  #change it to the correct location
+            cv2.imwrite("C:/Users/jackg/Desktop/test/%d.jpg" % count, image)  #change it to the correct location
         count+=1
 
         success, image = vidObj.read() 
@@ -89,7 +89,7 @@ def caption_sentence_transform(lines):
 def captioning_shit(scenes, path):
     
 
-    test_path = "C:/Users/avant/Desktop/test/"   #change it to the correct location
+    test_path = "C:/Users/jackg/Desktop/test/"   #change it to the correct location
     if(os.path.isdir(test_path)):
     	shutil.rmtree(test_path)
     	os.mkdir(test_path)
@@ -109,18 +109,18 @@ def captioning_shit(scenes, path):
         for j in range(a,b+1,10):
             shutil.move(os.path.join(test_path, str(j)+'.jpg'), os.path.join(test_path, str(i)))
 
-    img_dir_path = "C:/Users/avant/Desktop/test/"                           #change it to the correct location
-    sys.path.insert(1, 'C:/Users/avant/Desktop/chainer-caption/code/')        #change it to the correct location
+    img_dir_path = "C:/Users/jackg/Desktop/test/"                           #change it to the correct location
+    sys.path.insert(1, 'C:/Users/jackg/Desktop/Image-caption/code/')        #change it to the correct location
     from CaptionGenerator import CaptionGenerator 
 
     caption_generator=CaptionGenerator(
-    # rnn_model_place='C:/Users/avant/Desktop/chainer-caption/data/caption_en_model40.model',   #change it to the correct location
-    # dictonary_place='C:/Users/avant/Desktop/chainer-caption/data/MSCOCO/mscoco_caption_train2014_processed_dic.json', 
+    rnn_model_place='C:/Users/jackg/Desktop/Image-caption/data/caption_en_model40.model',   #change it to the correct location
+    dictonary_place='C:/Users/jackg/Desktop/Image-caption/data/MSCOCO/mscoco_caption_train2014_processed_dic.json', 
 
-    rnn_model_place='C:/Users/avant/Desktop/chainer-caption/data/caption_model40_words.model',  
-    dictonary_place='C:/Users/avant/Desktop/chainer-caption/data/CCTV/cctv_caption_train2014_processed_dic.json', 
+    #rnn_model_place='C:/Users/avant/Desktop/chainer-caption/data/caption_model40_words.model',  
+    #dictonary_place='C:/Users/avant/Desktop/chainer-caption/data/CCTV/cctv_caption_train2014_processed_dic.json', 
 
-    cnn_model_place='C:/Users/avant/Desktop/chainer-caption/data/ResNet50.model',             #change it to the correct location
+    cnn_model_place='C:/Users/jackg/Desktop/Image-caption/data/ResNet50.model',             #change it to the correct location
         #change it to the correct location
     beamsize=3,
     depth_limit=50,
@@ -196,7 +196,7 @@ def upload_file():
     uploaded_file = request.files['file']
     if uploaded_file.filename != '':
         #uploaded_file.save(uploaded_file.filename)
-        path="C:/Users/avant/Desktop/SBD/testvids/"+uploaded_file.filename  #change it to the correct location
+        path="C:/Users/jackg/Desktop/SBD/testvids/"+uploaded_file.filename  #change it to the correct location
         print(path)
         s=sbd(path)
         captioning_shit(s, path)
@@ -204,7 +204,7 @@ def upload_file():
         a=f.read()
         cap=a.split("==*")
         temp5 = []
-        vid_path="C:/Users/avant/Desktop/SBD/static/"
+        vid_path="C:/Users/jackg/Desktop/SBD/static/"
         final_path=vid_path+uploaded_file.filename
         for caps in cap:
             temp=caps.split('=')
